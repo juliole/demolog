@@ -1,0 +1,26 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: demologtest-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: demologtest
+    spec:
+      containers:
+      - name: demologc1
+        image: juliole/demolognew
+        ports:
+        - containerPort: 1234
+        env:
+        - name: Container
+          value: "demologc1"
+      - name: demologc2
+        image: juliole/demolognew
+        ports:
+        - containerPort: 1235
+        env:
+        - name: Container
+          value: "demologc2"
